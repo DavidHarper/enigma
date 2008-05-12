@@ -16,14 +16,14 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
-*/
+ */
 
 package com.obliquity.enigma;
 
 /**
- * A layoutManager which stacks components one on top of the other,
- * regardless of their size.
-*/
+ * A layoutManager which stacks components one on top of the other, regardless
+ * of their size.
+ */
 
 public class StackLayout implements java.awt.LayoutManager {
 
@@ -33,15 +33,17 @@ public class StackLayout implements java.awt.LayoutManager {
 		this.vgap = vgap;
 	}
 
-	public void addLayoutComponent(java.lang.String name, java.awt.Component comp) {}
+	public void addLayoutComponent(java.lang.String name,
+			java.awt.Component comp) {
+	}
 
 	public java.awt.Dimension preferredLayoutSize(java.awt.Container parent) {
-		java.awt.Insets	insets = parent.getInsets();
-		int		ncomponents = parent.getComponentCount();
-		int		w = 0;
-		int		h = 0;
+		java.awt.Insets insets = parent.getInsets();
+		int ncomponents = parent.getComponentCount();
+		int w = 0;
+		int h = 0;
 
-		for (int i = 0 ; i < ncomponents ; i++) {
+		for (int i = 0; i < ncomponents; i++) {
 			java.awt.Component comp = parent.getComponent(i);
 			java.awt.Dimension d = comp.getPreferredSize();
 			if (w < d.width) {
@@ -53,7 +55,7 @@ public class StackLayout implements java.awt.LayoutManager {
 			}
 		}
 		return new java.awt.Dimension(insets.left + insets.right + w,
-			insets.top + insets.bottom + h);
+				insets.top + insets.bottom + h);
 	}
 
 	public void layoutContainer(java.awt.Container parent) {
@@ -75,5 +77,6 @@ public class StackLayout implements java.awt.LayoutManager {
 		return preferredLayoutSize(parent);
 	}
 
-	public void removeLayoutComponent(java.awt.Component comp) {}
+	public void removeLayoutComponent(java.awt.Component comp) {
+	}
 }
