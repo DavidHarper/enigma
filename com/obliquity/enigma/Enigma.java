@@ -4,6 +4,8 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import javax.swing.JFrame;
+
 public class Enigma extends Applet {
 	static final int PLAYING = 0, FINISHED = 1;
 
@@ -16,23 +18,20 @@ public class Enigma extends Applet {
 	int nBeads;
 	int nTries;
 
-	public Enigma() {
-	}
-
 	public static void main(String args[]) {
-		Frame frame = new Frame("Enigma");
-
-		frame.setLayout(new BorderLayout());
+		JFrame frame = new JFrame("Enigma");
 
 		Enigma enigma = new Enigma();
 
 		enigma.init();
-		frame.add(enigma, BorderLayout.CENTER);
+		frame.getContentPane().add(enigma, BorderLayout.CENTER);
 
 		enigma.start();
 
-		frame.setSize(enigma.getMinimumSize());
+		frame.pack();
 
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		frame.setVisible(true);
 	}
 
